@@ -1,4 +1,4 @@
-package org.example;
+package org.puzzle.coin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ import java.util.Arrays;
  * number of moves is
   the square pyramidal numbers 1, 5, 14, 30, 55, 91, ... (OEIS A000330).
  */
-public class Main {
+public class CoinAlgo {
 
     public static void main(String[] args) {
         //Example n=7 could be any odd number
@@ -71,7 +71,7 @@ public class Main {
 
         StringBuilder workingStringB = new StringBuilder(solutionString);
 
-        // Main loop: as long as we have not reached the start state, perform
+        // CoinAlgo loop: as long as we have not reached the start state, perform
         // further reverse moves.
         while (!workingStringB.toString().equals(initialString)) {
 
