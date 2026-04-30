@@ -1,5 +1,3 @@
-﻿# Coin-Puzzle
-
 # Coin Sorting Puzzle
  
 Ein Algorithmus zur Lösung eines kombinatorischen Münz-Sortier-Puzzles
