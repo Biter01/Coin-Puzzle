@@ -32,17 +32,11 @@ Per vollständiger Breitensuche (BFS) ist diese Schrittzahl für $n \in \{3, 5, 
 3. Setze das Paar an einer anderen Stelle der Reihe wieder ab. Erlaubt sind genau zwei Sorten von Ablageplätzen:
    - **Direkt am linken oder rechten Ende** der Münzreihe (das Paar wird einfach angehängt).
    - **In eine bestehende Lücke** der Breite genau 2, falls eine solche existiert.
-### Lückenregel (das Herzstück des Spiels)
- 
-Wenn ein Paar abgehoben wird, klafft an der alten Stelle eine Lücke der Breite 2. Diese Lücke gehört zur Stellung dazu — sie ist sichtbar und an einer Stelle fixiert, bis sie wieder gefüllt wird.
- 
-Während des Spiels gilt: Außerhalb der Endpunkte der Münzreihe darf zu jedem Zeitpunkt **höchstens eine** Lücke der Breite 2 existieren. Lücken am äußeren Rand zählen nicht — der Rand ist offen.
- 
-Konkret: Sobald ein Paar abgehoben wird und das eine Lücke in der Mitte erzeugen würde, *während* schon eine andere Lücke in der Mitte ist, ist der Zug verboten — außer das abgehobene Paar wird sofort genau in jene andere Lücke gesetzt.
- 
-**Endbedingung:** Die Münzen müssen am Ende kompakt nebeneinander liegen — keine Lücken in der Mitte.
- 
-**Ziel:** Vom Start in möglichst wenigen Zügen zum Ziel.
+
+### Einschränkgunen
+
+1. Die Münzen müssen nach jedem Zug in einer Kette aneinanderleigen mit höchstens einer 2er Lücke dazwischen
+2. Münzen dürfen nicht zusammengeschoben werden wie etwa `... OXO__XX... -> ...OXOXX... ` .
  
 ---
  
