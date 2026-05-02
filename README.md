@@ -1,21 +1,8 @@
 # Coin Sorting Puzzle
  
-Ein Algorithmus zur Lösung eines kombinatorischen Münz-Sortier-Puzzles
+## Das Puzzle 
  
-Empirisch erreicht der Algorithmus die Schrittzahl
- 
-$$T(n) = \frac{m(m+1)(2m+1)}{6} \quad \text{mit } m = \frac{n-1}{2}$$
- 
-das sind die [Quadratpyramidenzahlen (OEIS A000330)](https://oeis.org/A000330): 1, 5, 14, 30, 55, 91, 140, 204, 285, …
-
-Dabei löst der Algorithmus von hinten nach vorne das Problem und braucht in jeden Schrittt die Quadratpyramidenzahl an Schritten!
-
-Per vollständiger Breitensuche (BFS) ist diese Schrittzahl für $n \in \{3, 5, 7, 9, 11, 13, 15, 17, 19\}$ als **optimal** verifiziert. Ein formaler Beweis für allgemeines $n$ steht aus.
- 
- 
-## Das Puzzle :)
- 
-**Spielmaterial:** Eine Reihe aus $n$ Münzen, $n$ ungerade und $n \geq 3$. Es gibt zwei Sorten — Gold (`O`) und Silber (`X`). Davon $(n+1)/2$ Goldmünzen und $(n-1)/2$ Silbermünzen.
+**Spielmaterial:** Eine Reihe aus $n$ Münzen, $n$ ungerade und $n \geq 5$. Es gibt zwei Sorten — Gold (`O`) und Silber (`X`). Davon $(n+1)/2$ Goldmünzen und $(n-1)/2$ Silbermünzen.
  
 **Startposition:** Die Münzen liegen alternierend, beginnend und endend mit Gold:
 `OXOXO...XO`
@@ -31,26 +18,35 @@ Per vollständiger Breitensuche (BFS) ist diese Schrittzahl für $n \in \{3, 5, 
 2. Hebe dieses Paar als Block ab. Die Reihenfolge der beiden Münzen bleibt erhalten — sie werden **nicht** vertauscht und nicht gespiegelt.
 3. Setze das Paar an einer anderen Stelle der Reihe wieder ab. Erlaubt sind genau zwei Sorten von Ablageplätzen:
    - **Direkt am linken oder rechten Ende** der Münzreihe (das Paar wird einfach angehängt).
-   - **In eine bestehende Lücke** der Breite genau 2, falls eine solche existiert.
+   - **In eine bestehende Lücke** der Breite genau 2, falls eine solche existiert!.
+       
 
-### Einschränkgunen
 
-1. Die Münzen müssen nach jedem Zug in einer Kette aneinanderleigen mit höchstens einer 2er Lücke dazwischen
-2. Münzen dürfen nicht zusammengeschoben werden wie etwa `... OXO__XX... -> ...OXOXX... ` .
- 
----
- 
+Die Münzen müssen nach jedem Zug in einer **Kette** aneinanderliegen! 
+Nach einen Zug (Verscheiben und Ablegen) müssen die Münzen mit höchstens einer 2er Lücke zwischen Ende und Anfang der Reihe liegen.
+Lücken werden dabei immer nur zwischen **Anfang** und **Ende** der Reihe gezählt
+```
+OXOXO  (✓ 0 Lücken)
+OX_O__OX  (X 3 Lücken)
+OO____XOX  (X 4 Lücken)
+```
+
+Münzen dürfen bei einem Zug nicht zusammengeschoben werden wie etwa 
+`... OXO__OO... -> ...O__OXOO... ` .
+
+
 ## Beispiele
  
 ### n = 5 (5 Schritte)
  
 ```
 OXOXO       (Start)
-OXOOX
-OOXOX
-O__OXOX
-OXOO__X
-OOOXX       (Ziel)
+OXOOX       OX (1,2) an Ende
+OOXOX       OX (1,2) an Ende
+O__OXOX     OX (2,3) an Ende
+OXOO__X     XO (3,4) in Lücke
+OOOXX       OX (1,2) in Lücke
+(Ziel)
 ```
  
 ### n = 7 (14 Schritte)
@@ -109,10 +105,8 @@ OXOOOO__XXX
 OOOOOXXXX (Ziel)
 ```
 
-```
 ### n = 11 (Schritte 55)
-
-
+```
 OXOXOXOXOXO (Start)
 OXOXOXOXOOX
 OXOXOXOOXOX
@@ -192,6 +186,18 @@ OOOOOOXXXXX (Ziel)
 
 
 ### Algorithmus
+
+Ein Algorithmus zur Lösung eines kombinatorischen Münz-Sortier-Puzzles
+ 
+Empirisch erreicht der Algorithmus die Schrittzahl
+ 
+$$T(n) = \frac{m(m+1)(2m+1)}{6} \quad \text{mit } m = \frac{n-1}{2}$$
+ 
+das sind die [Quadratpyramidenzahlen (OEIS A000330)](https://oeis.org/A000330): 1, 5, 14, 30, 55, 91, 140, 204, 285, …
+
+Dabei löst der Algorithmus von hinten nach vorne das Problem und braucht in jeden Schrittt die Quadratpyramidenzahl an Schritten!
+
+Per vollständiger Breitensuche (BFS) ist diese Schrittzahl für $n \in \{3, 5, 7, 9, 11, 13, 15, 17, 19\}$ als **optimal** verifiziert. Ein formaler Beweis für allgemeines $n$ steht aus.
 
 ```java
 package org.puzzle.coin;
