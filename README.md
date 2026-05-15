@@ -1,4 +1,4 @@
-# Coin Sorting Puzzle
+# "Collating the Coins" A Coin Puzzle
  
 ## Das Puzzle 
  
@@ -19,8 +19,11 @@
 3. Setze das Paar an einer anderen Stelle der Reihe wieder ab. Erlaubt sind genau zwei Sorten von Ablageplätzen:
    - **Direkt am linken oder rechten Ende** der Münzreihe (das Paar wird einfach angehängt).
    - **In eine bestehende Lücke** der Breite genau 2, falls eine solche existiert!.
-       
-
+4. Münzen dürfen nicht in eine benachbarte Lücke geschoben werden! Diese müssen immer bewegt werden!      
+```
+  ... OXO__OO... -> ...O__OXOO...
+  OXOXO -> OX__OXO
+```
 
 Die Münzen müssen nach jedem Zug in einer **Kette** aneinanderliegen! 
 Nach einen Zug (Verscheiben und Ablegen) müssen die Münzen mit höchstens einer 2er Lücke zwischen Ende und Anfang der Reihe liegen.
@@ -31,11 +34,7 @@ OX_O__OX  (X 3 Lücken)
 OO____XOX  (X 4 Lücken)
 ```
 
-Münzen dürfen bei einem Zug nicht in eine benachbarte Lücke zusammengeschoben oder auseinandergeschoben werden wie etwa 
-```
-  ... OXO__OO... -> ...O__OXOO...
-  OXOXO -> OX__OXO
-```
+
 
 
 ## Beispiele
