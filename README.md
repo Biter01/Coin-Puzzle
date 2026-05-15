@@ -31,8 +31,11 @@ OX_O__OX  (X 3 Lücken)
 OO____XOX  (X 4 Lücken)
 ```
 
-Münzen dürfen bei einem Zug nicht zusammengeschoben werden wie etwa 
-`... OXO__OO... -> ...O__OXOO... ` .
+Münzen dürfen bei einem Zug nicht in eine benachbarte Lücke zusammengeschoben oder auseinandergeschoben werden wie etwa 
+```
+  ... OXO__OO... -> ...O__OXOO...
+  OXOXO -> OX__OXO
+```
 
 
 ## Beispiele
@@ -189,13 +192,13 @@ OOOOOOXXXXX (Ziel)
 
 Ein Algorithmus zur Lösung eines kombinatorischen Münz-Sortier-Puzzles
  
-Empirisch erreicht der Algorithmus die Schrittzahl
+der Algorithmus hat die Schrittzahl
  
 $$T(n) = \frac{m(m+1)(2m+1)}{6} \quad \text{mit } m = \frac{n-1}{2}$$
  
 das sind die [Quadratpyramidenzahlen (OEIS A000330)](https://oeis.org/A000330): 1, 5, 14, 30, 55, 91, 140, 204, 285, …
 
-Dabei löst der Algorithmus von hinten nach vorne das Problem und braucht in jeden Schrittt die Quadratpyramidenzahl an Schritten!
+Dabei löst der Algorithmus von hinten nach vorne das Problem und braucht in jeden Schrittt die Quadratpyramidenzahl(gilt es zu Beweisen) an Schritten!
 
 Per vollständiger Breitensuche (BFS) ist diese Schrittzahl für $n \in \{3, 5, 7, 9, 11, 13, 15, 17, 19\}$ als **optimal** verifiziert. Ein formaler Beweis für allgemeines $n$ steht aus.
 
