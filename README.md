@@ -19,7 +19,8 @@
 3. Setze das Paar an einer anderen Stelle der Reihe wieder ab. Erlaubt sind genau zwei Sorten von Ablageplätzen:
    - **Direkt am linken oder rechten Ende** der Münzreihe (das Paar wird einfach angehängt).
    - **In eine bestehende Lücke** der Breite genau 2, falls eine solche existiert!.
-4. Münzen dürfen nicht unmittelbar nach links oder rechts geschoben werden! Wie etwa...      
+4. Reines „Seitwärts-Schieben“ ist verboten.
+Das entfernte Paar darf nicht unmittelbar links oder rechts seiner ursprünglichen Position wieder eingesetzt werden.
 ```
   ... OXO__OO... -> ...O__OXOO...
   OXOXO -> OX__OXO
